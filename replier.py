@@ -4,7 +4,7 @@ import time
 from collections import defaultdict
 from telethon import functions, types
 from telethon.sessions import StringSession
-
+import time
 from telethon import TelegramClient, events
 
 import logging
@@ -48,7 +48,7 @@ def can_react(chat_id):
 async def handler(event):
     # We can also use client methods from here
     client = event.client
-   
+    time.sleep(3)
         # if can_react(event.chat_id):
 
     await event.respond(r'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id ante fringilla, porta est vitae, auctor erat. Vivamus ut mattis nisl. Vestibulum ultrices orci non urna fermentum, ac sodales mauris posuere. Suspendisse viverra lacus et ipsum laoreet tincidunt. Etiam nisi ex, posuere vel sapien posuere, ultricies suscipit ex. Mauris quis elementum nisl, vel tincidunt ipsum. Praesent scelerisque elit eu turpis dapibus, sed efficitur urna sagittis.')
@@ -59,14 +59,14 @@ async def handler(event):
     await client.send_file(event.chat_id, 'files/test.txt')
     sender = await event.get_sender()
 
-    # result = await client(functions.contacts.BlockRequest(
-    #                 id=sender
-    #             ))
+    result = await client(functions.contacts.BlockRequest(
+                    id=sender
+                ))
 
 client = TelegramClient(
-    StringSession('1BVtsOHcBuxadomCjJ3MIbYQ077Q3r0MUntPPynRoNE8tXIoqwNcfvGXh2XbblKUi40z2VZTgEuLU1JVUh9WFMgMooQ8_DnswOAovBr1BY6ZNgGlG4l-u6jDJK1I6RQNAF-TxO3UExDOsxO630JfzFv0fSKFnGQNdXDVNx0xpxElgvjan3y-kboaAELXfv6SL-cx6dcORsW2FB9ctQAOkoEccEcwxPkZ6HYlWHNXnhCf7L5QgofnK0bE3XHf38KVHKzf9mFTYxOOTlH19PYlMpWipiPbpjZQjETLzu5iwVH08hg-eCtnaJX5nrJJFGzHTyrhYsEFCd_RGGCm--RN4MyGBhI7xonQ='),
-    27172087,
-    "3a160707c6d92a576f4224cc322b731e",
+    StringSession('1ApWapzMBu7DiVr7hWpL8E9qLo6wiHk8umWW-VLfxT0Yp_5K_YAT7bvZO-UF1blM1GeeAMviTGWwEamzFHFVSBjAwlfQiFiWpO_fY07GvoHAbhHbPIbwVgJ1IicjKzVpASWvWBUdV3O9zOo0pnaXbFXzmNODniRlof1K-r3Y6XH7kBo8oTgnaUHkE8JfsS06wJOL_V9XGeeVcs70hMvcoavQYfsSPsQpX4hlTzXvAZWQAqoINzeBdt1Te4ZvM7koCqTWoNIixJgYYLb4RUOLwZCBNlMpx_shpWQ36iKp2ObckMi2wGvVOuT7sXEHa-Pde0D_kJWGj0T_asGg2czaLz8wXuJPEpv8='),
+    25322714,
+    "3d235935dc316a9f3e624e8998c31068",
     proxy=None
 )
 
